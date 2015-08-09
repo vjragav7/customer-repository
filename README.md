@@ -12,4 +12,14 @@ cd customer-repository
 
 To run the application, execute:
 
-mvn package && java -jar target/customer-repo-0.0.1-SNAPSHOT.jar
+mvn package && java -jar target/customer-repo-0.0.1-SNAPSHOT.jar 
+or
+mvn spring-boot:run
+
+## Run the cucumber tests
+
+After running the application and ensuring that it has launched successfully, to run the cucumber test, execute:
+
+mvn -Dtest=RunCustomerCukes test
+
+
