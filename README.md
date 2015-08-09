@@ -12,16 +12,16 @@ Spring Boot gives us the capability to run a web application without the need fo
 
 # Database
 
-The application uses the default configuration, which uses H2 database, which is a in-memory database. Everytime the application is restarted the data is lost and spring data wipes out the entire database.
+The application uses the default configuration, which uses H2, which is a in-memory database. Everytime the application is restarted, the data is cleaned up as spring data wipes out the entire database.
 
 
 # Integration Testing
 
-The application has Integration Tests, but no unit tests as there is just a interface which we have written and all othe methods are from the Spring Repository. There was no point in mocking out the repository moethods. 
+The application has Integration Tests, but no unit tests. There was no point in mocking out the repository methods. 
 
 #Acceptance Testing
 
-This application has acceptance tests backed by cucumber. The split between the Acceptance and Integration tests is Integration Tests will have all corner cases included, but the Acceptance tests would include specific business scenarios. The idea is to test as much as possible with smaller tests and keep the big tests for clear end to end scenarios.
+This application has acceptance tests backed by cucumber. The split between the Acceptance and Integration tests is that the Integration Tests will have all corner cases included, but the Acceptance tests would include specific business scenarios. The idea is to test as much as possible with smaller tests and keep the big tests for clear end to end scenarios.
 
 ## Get the source code
 [Download](https://github.com/vjragav7/customer-repository/archive/master.zip) and unzip the source for this application, or clone it using Git: 
@@ -40,7 +40,7 @@ mvn spring-boot:run
 
 ## Accessing the Rest API
 
-The Rest API is based on HATEOAS and returns content in HAL format.To access the api, if you have curl,
+The Rest API is based on HATEOAS and returns content in HAL format. To access the api, if you have curl,
 in the command prompt execute
 
 'curl http://localhost:8080/customers'
