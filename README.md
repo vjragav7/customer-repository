@@ -4,6 +4,7 @@ A Rest application which exposes CRUD operations for a Customer entity.
 
 # About the application
 
+Visit [Customer Repository Wiki](https://github.com/vjragav7/customer-repository/wiki) for details about the application stack.
 
 ## Get the source code
 [Download](https://github.com/vjragav7/customer-repository/archive/master.zip) and unzip the source for this application, or clone it using Git:   
