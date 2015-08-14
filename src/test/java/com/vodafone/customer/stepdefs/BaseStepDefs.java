@@ -42,14 +42,10 @@ public class BaseStepDefs {
 		
 		final Map<String, String> headers = new HashMap<>();
 		headers.put("Accept", "application/json");
-				
-		if (restTemplate == null) {
-			restTemplate = new TestRestTemplate();
-		}
 		
 		ParameterizedTypeReference<Resource<Customer>> responseType = new ParameterizedTypeReference<Resource<Customer>>() {
 		};
-		ResponseEntity<Resource<Customer>> responseEntity = restTemplate
+		ResponseEntity<Resource<Customer>> responseEntity =  getRestTemplate()
 				.exchange(url, HttpMethod.GET, null, responseType);
 		if (responseEntity.hasBody()) {
 			return responseEntity.getBody().getContent();
@@ -63,25 +59,26 @@ public class BaseStepDefs {
 
 	protected HttpEntity<String> executePost(String url, Customer customer) {
 
+		
+		return  getRestTemplate().postForEntity(url, customer, String.class);
+	}
+
+	private RestTemplate getRestTemplate() {
 		if (restTemplate == null) {
 			restTemplate = new RestTemplate();
 		}
-		return restTemplate.postForEntity(url, customer, String.class);
+		return restTemplate;
 	}
 
 	protected void executePut(String url, Customer customer) {
 
-		if (restTemplate == null) {
-			restTemplate = new RestTemplate();
-		}
-		restTemplate.put(url,customer);
+		
+		 getRestTemplate().put(url,customer);
 	}
 	
 	protected void executeDelete(String url){
-		if (restTemplate == null) {
-			restTemplate = new RestTemplate();
-		}
-		restTemplate.delete(url);
+		
+		 getRestTemplate().delete(url);
 		
 	}
 	
