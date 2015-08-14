@@ -63,12 +63,6 @@ public class BaseStepDefs {
 		return  getRestTemplate().postForEntity(url, customer, String.class);
 	}
 
-	private RestTemplate getRestTemplate() {
-		if (restTemplate == null) {
-			restTemplate = new RestTemplate();
-		}
-		return restTemplate;
-	}
 
 	protected void executePut(String url, Customer customer) {
 
@@ -85,5 +79,11 @@ public class BaseStepDefs {
 	protected Customer returnTestCustomer(){
 		
 		return new Customer(RandomStringUtils.random(10),RandomStringUtils.random(10),RandomStringUtils.random(15),RandomStringUtils.random(10));
+	}
+	private RestTemplate getRestTemplate() {
+		if (restTemplate == null) {
+			restTemplate = new RestTemplate();
+		}
+		return restTemplate;
 	}
 }
