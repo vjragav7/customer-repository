@@ -80,9 +80,10 @@ public class BaseStepDefs {
 		
 		return new Customer(RandomStringUtils.random(10),RandomStringUtils.random(10),RandomStringUtils.random(15),RandomStringUtils.random(10));
 	}
+	
 	private RestTemplate getRestTemplate() {
 		if (restTemplate == null) {
-			restTemplate = new RestTemplate();
+			restTemplate = new TestRestTemplate();
 		}
 		return restTemplate;
 	}
